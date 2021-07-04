@@ -2,6 +2,7 @@ package com.adetayoolaitan;
 
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch2;
+import static com.adetayoolaitan.algorithms.search.Jump.jumpSearch;
 import static com.adetayoolaitan.algorithms.search.Linear.search;
 import static com.adetayoolaitan.algorithms.search.Linear.search2;
 
@@ -43,5 +44,18 @@ public class Main {
             System.out.println("Element not present");
         else
             System.out.println("Element found at index " + result);
+    }
+
+    static void test_jumpsearch(){
+        int arr[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21,
+                34, 55, 89, 144, 233, 377, 610};
+        int x = 55;
+
+        // Find the index of 'x' using Jump Search
+        int index = jumpSearch(arr, x);
+
+        // Print the index where 'x' is located
+        System.out.println("\nNumber " + x +
+                " is at index " + index);
     }
 }
