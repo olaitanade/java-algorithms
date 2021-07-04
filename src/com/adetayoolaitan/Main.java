@@ -2,6 +2,8 @@ package com.adetayoolaitan;
 
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch2;
+import static com.adetayoolaitan.algorithms.search.Exponential.exponentialSearch;
+import static com.adetayoolaitan.algorithms.search.Interpolation.interpolationSearch;
 import static com.adetayoolaitan.algorithms.search.Jump.jumpSearch;
 import static com.adetayoolaitan.algorithms.search.Linear.search;
 import static com.adetayoolaitan.algorithms.search.Linear.search2;
@@ -58,4 +60,37 @@ public class Main {
         System.out.println("\nNumber " + x +
                 " is at index " + index);
     }
+
+    static void test_interpolationsearch(){
+        // Array of items on which search will
+        // be conducted.
+        int arr[] = { 10, 12, 13, 16, 18, 19, 20, 21,
+                22, 23, 24, 33, 35, 42, 47 };
+
+        int n = arr.length;
+
+        // Element to be searched
+        int x = 18;
+        int index = interpolationSearch(arr, 0, n - 1, x);
+
+        // If element was found
+        if (index != -1)
+            System.out.println("Element found at index "
+                    + index);
+        else
+            System.out.println("Element not found.");
+    }
+
+    static void test_exponentialsearch(){
+        int arr[] = {2, 3, 4, 10, 40};
+        int x = 10;
+        int result = exponentialSearch(arr,
+                arr.length, x);
+
+        System.out.println((result < 0) ?
+                "Element is not present in array" :
+                "Element is present at index " +
+                        result);
+    }
+
 }
