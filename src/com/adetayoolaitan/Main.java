@@ -1,9 +1,17 @@
 package com.adetayoolaitan;
 
 import com.adetayoolaitan.algorithms.PrintUtil;
+import com.adetayoolaitan.algorithms.backtracking.StringPermutation;
+import com.adetayoolaitan.algorithms.greedy.ActivitySelection.Activity;
+
+import java.util.Arrays;
 
 import static com.adetayoolaitan.algorithms.PrintUtil.printArray;
 import static com.adetayoolaitan.algorithms.array.SubArraySum.subArraySum;
+import static com.adetayoolaitan.algorithms.greedy.ActivitySelection.printMaxActivities;
+import static com.adetayoolaitan.algorithms.greedy.BuyNCandles.findMaximum;
+import static com.adetayoolaitan.algorithms.greedy.BuyNCandles.findMinimum;
+import static com.adetayoolaitan.algorithms.greedy.MaximumToys.maximum_toys;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch2;
 import static com.adetayoolaitan.algorithms.search.Exponential.exponentialSearch;
@@ -247,5 +255,45 @@ public class Main {
         String s = "i like this program very much ";
         char []p = reverseWords(s.toCharArray());
         System.out.print(p);
+    }
+
+    static void test_activityselection(){
+        int n = 6;
+        Activity arr[] = new Activity[n];
+        arr[0] = new Activity(5, 9);
+        arr[1] = new Activity(1, 2);
+        arr[2] = new Activity(3, 4);
+        arr[3] = new Activity(0, 6);
+        arr[4] = new Activity(5, 7);
+        arr[5] = new Activity(8, 9);
+
+        printMaxActivities(arr, n);
+    }
+
+    static void test_stringpermutation(){
+        String str = "ABC";
+        int n = str.length();
+        StringPermutation permutation = new StringPermutation();
+        permutation.permute(str, 0, n-1);
+    }
+
+    static void test_buyncandles(){
+        int arr[] = { 3, 2, 1, 4 };
+        int n = arr.length;
+        int k = 2;
+        Arrays.sort(arr);
+
+        // Function call
+        System.out.println(findMinimum(arr, n, k) + " "
+                + findMaximum(arr, n, k));
+    }
+
+    static void test_maximizetoys(){
+        int K = 50;
+        int cost[] = {1, 12, 5, 111, 200,
+                1000, 10, 9, 12, 15};
+        int N = cost.length;
+
+        System.out.print( maximum_toys(cost, N, K));
     }
 }
