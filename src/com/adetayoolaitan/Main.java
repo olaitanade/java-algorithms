@@ -3,6 +3,7 @@ package com.adetayoolaitan;
 import com.adetayoolaitan.algorithms.PrintUtil;
 
 import static com.adetayoolaitan.algorithms.PrintUtil.printArray;
+import static com.adetayoolaitan.algorithms.array.SubArraySum.subArraySum;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch;
 import static com.adetayoolaitan.algorithms.search.Binary.bSearch2;
 import static com.adetayoolaitan.algorithms.search.Exponential.exponentialSearch;
@@ -23,12 +24,14 @@ import static com.adetayoolaitan.algorithms.sort.Quick.quickSort;
 import static com.adetayoolaitan.algorithms.sort.Radix.radixsort;
 import static com.adetayoolaitan.algorithms.sort.Selection.selectionSort;
 import static com.adetayoolaitan.algorithms.sort.Shell.shellsort;
+import static com.adetayoolaitan.algorithms.string.ReverseWordsInAGivenString.reverseWords;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
         //test_linearsearch();//linear search
+        test_reversewords();
 
     }
 
@@ -231,5 +234,18 @@ public class Main {
         System.out.println("After sort : ");
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
+    }
+
+    static void test_subarraysum(){
+        int arr[] = { 15, 2, 4, 8, 9, 5, 10, 23 };
+        int n = arr.length;
+        int sum = 23;
+        subArraySum(arr, n, sum);
+    }
+
+    static void test_reversewords(){
+        String s = "i like this program very much ";
+        char []p = reverseWords(s.toCharArray());
+        System.out.print(p);
     }
 }
